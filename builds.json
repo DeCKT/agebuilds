@@ -1,0 +1,47 @@
+{
+  "game": "Age of Empires II: Difinitive Edition",
+  "gameVersion": "61591",
+  "buildName": "21 Population Britons Archer Rush",
+  "civilizations": "Britons",
+  "maps": "Arabia",
+  "postedBy": "Morley Games",
+  "postedDate": "May 20, 2021",
+  "steps": [
+    {
+      "step": "1",
+      "vilNumber": "3",
+      "description": "Queue up 4 vils and build 2 houses with starting vils. Send all vils to sheep"
+    },
+    {
+      "step": "2",
+      "vilNumber": "6",
+      "description": "Send your sixth vil to build a lumber camp. Send the next 3 vils to chop wood."
+    },
+    {
+      "step": "3",
+      "vilNumber": "10",
+      "description": "Send your tenth and eleventh vils to lure/collect boars."
+    },
+    {
+      "step": "4",
+      "vilNumber": "12",
+      "description": "Build 2 houses with your twelfth vil, then send it to berries."
+    },
+    {
+      "step": "5",
+      "vilNumber": "13",
+      "description": "With your thirteenth vil, build a mill on the berries. Send the next 2 vils to berries"
+    },
+    {
+      "step": "6",
+      "vilNumber": "16",
+      "description": "Send your sixteenth, seventeenth, and eighteenth vils to collect food from boars and sheep under your TC"
+    },
+    {
+      "step": "7",
+      "vilNumber": "19",
+      "description": "Send your nineteenth and twentieth vils to wood. Queue up Loom and then click up to Feudal Age"
+    }
+  ],
+  "videoExample": "https://youtu.be/EkM6_baRJSg"
+}

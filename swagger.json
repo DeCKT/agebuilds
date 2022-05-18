@@ -1,0 +1,361 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Age Builds API Docs",
+    "description": "Documentation describing how to utilize the Age of Empires Build Orders API.",
+    "version": "1.0.0"
+  },
+  "host": "",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "builds",
+      "description": "Build order requests"
+    },
+    {
+      "name": "users",
+      "description": "User requests"
+    }
+  ],
+  "schemes": ["http", "https"],
+  "paths": {
+    "/builds": {
+      "get": {
+        "tags": ["builds"],
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": ["builds"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "game": {
+                  "example": "Age of Empires II: Difinitive Edition"
+                },
+                "gameVersion": {
+                  "example": "61591"
+                },
+                "buildName": {
+                  "example": "21 Population Britons Archer Rush"
+                },
+                "civilizations": {
+                  "example": "Britons"
+                },
+                "maps": {
+                  "example": "Arabia"
+                },
+                "postedBy": {
+                  "example": "Morley Games"
+                },
+                "postedDate": {
+                  "example": "May 20, 2021"
+                },
+                "steps": {
+                  "example": [
+                    {
+                      "step": "1",
+                      "vilNumber": "3",
+                      "description": "Queue up 4 vils and build 2 houses with starting vils. Send all vils to sheep"
+                    },
+                    {
+                      "step": "2",
+                      "vilNumber": "6",
+                      "description": "Send your sixth vil to build a lumber camp. Send the next 3 vils to chop wood."
+                    },
+                    {
+                      "step": "3",
+                      "vilNumber": "10",
+                      "description": "Send your tenth and eleventh vils to lure/collect boars."
+                    },
+                    {
+                      "step": "4",
+                      "vilNumber": "12",
+                      "description": "Build 2 houses with your twelfth vil, then send it to berries."
+                    },
+                    {
+                      "step": "5",
+                      "vilNumber": "13",
+                      "description": "With your thirteenth vil, build a mill on the berries. Send the next 2 vils to berries"
+                    },
+                    {
+                      "step": "6",
+                      "vilNumber": "16",
+                      "description": "Send your sixteenth, seventeenth, and eighteenth vils to collect food from boars and sheep under your TC"
+                    },
+                    {
+                      "step": "7",
+                      "vilNumber": "19",
+                      "description": "Send your nineteenth and twentieth vils to wood. Queue up Loom and then click up to Feudal Age"
+                    }
+                  ]
+                },
+                "videoExample": {
+                  "example": "https://youtu.be/EkM6_baRJSg"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/builds/{id}": {
+      "get": {
+        "tags": ["builds"],
+        "description": "",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": ["builds"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "game": {
+                  "example": "Age of Empires II: Difinitive Edition"
+                },
+                "gameVersion": {
+                  "example": "61591"
+                },
+                "buildName": {
+                  "example": "21 Population Britons Archer Rush"
+                },
+                "civilizations": {
+                  "example": "Britons"
+                },
+                "maps": {
+                  "example": "Runestones"
+                },
+                "postedBy": {
+                  "example": "Morley Games"
+                },
+                "postedDate": {
+                  "example": "May 20, 2021"
+                },
+                "steps": {
+                  "example": [
+                    {
+                      "step": "1",
+                      "vilNumber": "3",
+                      "description": "Queue up 4 vils and build 2 houses with starting vils. Send all vils to sheep"
+                    },
+                    {
+                      "step": "2",
+                      "vilNumber": "6",
+                      "description": "Send your sixth vil to build a lumber camp. Send the next 3 vils to chop wood."
+                    },
+                    {
+                      "step": "3",
+                      "vilNumber": "10",
+                      "description": "Send your tenth and eleventh vils to lure/collect boars."
+                    },
+                    {
+                      "step": "4",
+                      "vilNumber": "12",
+                      "description": "Build 2 houses with your twelfth vil, then send it to berries."
+                    },
+                    {
+                      "step": "5",
+                      "vilNumber": "13",
+                      "description": "With your thirteenth vil, build a mill on the berries. Send the next 2 vils to berries"
+                    },
+                    {
+                      "step": "6",
+                      "vilNumber": "16",
+                      "description": "Send your sixteenth, seventeenth, and eighteenth vils to collect food from boars and sheep under your TC"
+                    },
+                    {
+                      "step": "7",
+                      "vilNumber": "19",
+                      "description": "Send your nineteenth and twentieth vils to wood. Queue up Loom and then click up to Feudal Age"
+                    }
+                  ]
+                },
+                "videoExample": {
+                  "example": "https://youtu.be/EkM6_baRJSg"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["builds"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/user": {
+      "post": {
+        "tags": ["users"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "example": "DeCKT"
+                },
+                "buildIds": {
+                  "example": ["2"]
+                },
+                "elo": {
+                  "example": "1150"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/user/{id}": {
+      "get": {
+        "tags": ["users"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "tags": ["users"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "example": "DeCKT"
+                },
+                "buildIds": {
+                  "example": ["2"]
+                },
+                "elo": {
+                  "example": "1150"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["users"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  }
+}
