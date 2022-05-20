@@ -41,7 +41,7 @@
               "type": "object",
               "properties": {
                 "game": {
-                  "example": "Age of Empires II: Difinitive Edition"
+                  "example": "Age of Empires II: Definitive Edition"
                 },
                 "gameVersion": {
                   "example": "61591"
@@ -154,7 +154,7 @@
               "type": "object",
               "properties": {
                 "game": {
-                  "example": "Age of Empires II: Difinitive Edition"
+                  "example": "Age of Empires II: Definitive Edition"
                 },
                 "gameVersion": {
                   "example": "61591"
