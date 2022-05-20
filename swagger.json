@@ -5,7 +5,7 @@
     "description": "Documentation describing how to utilize the Age of Empires Build Orders API.",
     "version": "1.0.0"
   },
-  "host": "",
+  "host": "agebuildorders.herokuapp.com",
   "basePath": "/",
   "tags": [
     {
