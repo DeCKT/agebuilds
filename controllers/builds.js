@@ -54,4 +54,4 @@ const addBuild = async (req, res, next) => {
   }
 };
 
-module.exports = { getAllBuilds, getBuildById };
+module.exports = { getAllBuilds, getBuildById, addBuild };

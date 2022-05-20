@@ -10,7 +10,7 @@ routes.get("/:id", controller.getBuildById);
 
 // routes.get("/user/:id", controller.getAllBuildsByUser);
 
-// routes.post("/", controller.addBuild);
+routes.post("/", controller.addBuild);
 
 // routes.put("/:id", controller.updateBuild);
 
