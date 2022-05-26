@@ -12,8 +12,8 @@ routes.get("/:id", controller.getBuildById);
 
 routes.post("/", controller.addBuild);
 
-// routes.put("/:id", controller.updateBuild);
+routes.put("/:id", controller.updateBuild);
 
-// routes.delete("/:id", controller.deleteBuild);
+routes.delete("/:id", controller.deleteBuildById);
 
 module.exports = routes;

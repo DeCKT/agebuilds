@@ -137,7 +137,6 @@
         }
       },
       "put": {
-        "deprecated": true,
         "tags": ["builds"],
         "description": "",
         "parameters": [
@@ -230,7 +229,6 @@
         }
       },
       "delete": {
-        "deprecated": true,
         "tags": ["builds"],
         "description": "",
         "parameters": [
