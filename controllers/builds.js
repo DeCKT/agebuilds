@@ -72,6 +72,7 @@ const addBuild = async (req, res, next) => {
 const updateBuild = async (req, res, next) => {
   try {
     const buildId = new ObjectId(req.params.id);
+    console.log("Hello?");
     const result = await mongodb
       .getDb()
       .db()
@@ -118,12 +119,13 @@ const deleteBuildById = async (req, res, next) => {
     if (result.acknowledge) {
       res.status(200).json(result);
       next();
+    } else {
+      res
+        .status(500)
+        .json(
+          result.error || "Some error occured while attempting to delete build."
+        );
     }
-    res
-      .status(500)
-      .json(
-        result.error || "Some error occured while attempting to delete build."
-      );
   } catch (err) {
     res.status(400).json(err);
   }
