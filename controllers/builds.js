@@ -7,6 +7,7 @@ const getAllBuilds = async (req, res, next) => {
     result.toArray().then((builds) => {
       if (builds.length == 0) {
         res.status(404).json("Unable to find any builds.");
+        throw err;
       }
       res.setHeader("Content-Type", "application/json");
       res.status(200).json(builds);
