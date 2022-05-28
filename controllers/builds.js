@@ -34,7 +34,7 @@ const getBuildById = async (req, res, next) => {
           res.status(404).json("Unable to find build with that ID.");
         } else {
           res.setHeader("Content-Type", "application/json");
-          res.status(200).json(builds[0]);
+          res.status(200).json(builds.length);
           next();
         }
       });
