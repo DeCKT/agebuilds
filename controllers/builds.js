@@ -37,7 +37,7 @@ const getBuildById = async (req, res, next) => {
       next();
     });
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500).json(err || "Unable to find any builds.");
   }
 };
 
