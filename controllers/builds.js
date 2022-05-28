@@ -5,12 +5,15 @@ const getAllBuilds = async (req, res, next) => {
   try {
     const result = await mongodb.getDb().db().collection("build-orders").find();
     result.toArray().then((builds) => {
+      if (builds.length === 0) {
+        throw err;
+      }
       res.setHeader("Content-Type", "application/json");
       res.status(200).json(builds);
       next();
     });
   } catch (err) {
-    res.status(500).json("Unable to find any builds");
+    res.status(500).json("An error occurred while attempting to get builds.");
   }
 };
 
