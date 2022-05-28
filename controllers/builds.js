@@ -7,7 +7,7 @@ const getAllBuilds = async (req, res, next) => {
     result.toArray().then((builds) => {
       if (builds.length == 0) {
         res.status(404).json("Unable to find any builds.");
-        throw err;
+        throw "Unable to find any builds";
       }
       res.setHeader("Content-Type", "application/json");
       res.status(200).json(builds);
@@ -22,8 +22,7 @@ const getBuildById = async (req, res, next) => {
   try {
     const buildId = new ObjectId(req.params.id);
     if (!req.params.id) {
-      res.status(400).json("Build ID is required.");
-      throw err;
+      throw new Error("Build ID is required.", { status: 400 });
     }
     const result = await mongodb
       .getDb()
@@ -36,7 +35,7 @@ const getBuildById = async (req, res, next) => {
       next();
     });
   } catch (err) {
-    res.status(400).json(err);
+    res.status(err.status).json(err.message);
   }
 };
 
