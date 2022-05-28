@@ -100,10 +100,10 @@ const updateBuild = async (req, res, next) => {
           { _id: buildId },
           {
             $set: {
-              game: req.body.game || res.body.game,
-              gameVersion: req.body.gameVersion || res.body.gameVersion,
-              buildName: req.body.buildName || res.body.buildName,
-              civilizations: req.body.civilizations || res.body.civilizations,
+              game: req.body.game,
+              gameVersion: req.body.gameVersion,
+              buildName: req.body.buildName,
+              civilizations: req.body.civilizations,
               maps: req.body.maps,
               postedBy: req.body.postedBy,
               postedDate: req.body.postedDate,
