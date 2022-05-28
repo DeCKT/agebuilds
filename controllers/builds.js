@@ -124,7 +124,7 @@ const updateBuild = async (req, res, next) => {
               },
             }
           );
-        if (result.acknowledged) {
+        if (result.acknowledged && result.matchedCount > 0) {
           res.status(200).json(result);
           next();
         } else {
@@ -150,7 +150,7 @@ const deleteBuildById = async (req, res, next) => {
         .db()
         .collection("build-orders")
         .deleteOne({ _id: buildId });
-      if (result.acknowledged) {
+      if (result.acknowledged && result.deletedCount > 0) {
         res.status(200).json(result);
         next();
       } else {
