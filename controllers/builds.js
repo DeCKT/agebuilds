@@ -22,6 +22,7 @@ const getBuildById = async (req, res, next) => {
   try {
     const buildId = new ObjectId(req.params.id);
     if (!req.params.id) {
+      res.status(400).json("Build ID is required.");
       throw err;
     }
     const result = await mongodb
@@ -52,6 +53,18 @@ const addBuild = async (req, res, next) => {
       steps: req.body.steps,
       videoExample: req.body.videoExample,
     };
+    if (
+      !req.body.game ||
+      !req.body.gameVersion ||
+      !req.body.buildName ||
+      !req.body.civilizations ||
+      !req.body.maps ||
+      !req.body.postedBy ||
+      !req.body.postedDate ||
+      !req.body.steps
+    ) {
+      res.status(500).json("Missing info from required fields.");
+    }
     const result = await mongodb
       .getDb()
       .db()
@@ -76,7 +89,9 @@ const addBuild = async (req, res, next) => {
 const updateBuild = async (req, res, next) => {
   try {
     const buildId = new ObjectId(req.params.id);
-    console.log("Hello?");
+    if (!req.params.id) {
+      res.status(500).json("Build ID is required.");
+    }
     const result = await mongodb
       .getDb()
       .db()
