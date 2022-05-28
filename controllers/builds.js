@@ -78,7 +78,7 @@ const addBuild = async (req, res, next) => {
         res.status(201).json(result);
         next();
       } else {
-        res.status(400).json("A problem occurred when trying to add build.");
+        res.status(500).json("A problem occurred when trying to add build.");
       }
     }
   } catch (err) {
