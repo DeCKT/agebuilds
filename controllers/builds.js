@@ -6,7 +6,7 @@ const getAllBuilds = async (req, res, next) => {
     const result = await mongodb.getDb().db().collection("build-orders").find();
     result.toArray().then((builds) => {
       if (builds.length === 0) {
-        throw err;
+        throw new Error();
       }
       res.setHeader("Content-Type", "application/json");
       res.status(200).json(builds);
