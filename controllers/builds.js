@@ -5,7 +5,7 @@ const getAllBuilds = async (req, res, next) => {
   try {
     const result = await mongodb.getDb().db().collection("build-orders").find();
     result.toArray().then((builds) => {
-      if (builds.length == 0) {
+      if (result.length == 0) {
         throw new Error("Unable to find any builds", { status: 400 });
       }
       res.setHeader("Content-Type", "application/json");
