@@ -7,10 +7,11 @@ const getAllBuilds = async (req, res, next) => {
     result.toArray().then((builds) => {
       if (result.length == 0) {
         throw new Error("Unable to find any builds", { status: 400 });
+      } else {
+        res.setHeader("Content-Type", "application/json");
+        res.status(200).json(builds);
+        next();
       }
-      res.setHeader("Content-Type", "application/json");
-      res.status(200).json(builds);
-      next();
     });
   } catch (err) {
     res.status(err.status).json(err.message);
