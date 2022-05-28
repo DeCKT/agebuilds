@@ -6,15 +6,14 @@ const getAllBuilds = async (req, res, next) => {
     const result = await mongodb.getDb().db().collection("build-orders").find();
     result.toArray().then((builds) => {
       if (builds.length == 0) {
-        res.status(404).json("Unable to find any builds.");
-        throw "Unable to find any builds";
+        throw new Error("Unable to find any builds", { status: 400 });
       }
       res.setHeader("Content-Type", "application/json");
       res.status(200).json(builds);
       next();
     });
   } catch (err) {
-    res.status(400).json(err);
+    res.status(err.status).json(err.message);
   }
 };
 
@@ -62,7 +61,7 @@ const addBuild = async (req, res, next) => {
       !req.body.postedDate ||
       !req.body.steps
     ) {
-      res.status(500).json("Missing info from required fields.");
+      throw new Error("Missing info from required fields.", { status: 400 });
     }
     const result = await mongodb
       .getDb()
@@ -73,15 +72,13 @@ const addBuild = async (req, res, next) => {
       res.status(201).json(result);
       next();
     } else {
-      res
-        .status(500)
-        .json(
-          result.error ||
-            "Some error occurred while attempting to create new build."
-        );
+      throw new Error(
+        "Some error occurred while attempting to create new build",
+        { status: 400 }
+      );
     }
   } catch (err) {
-    res.status(400).json(err);
+    res.status(err.status).json(err.message);
   }
 };
 
@@ -89,7 +86,7 @@ const updateBuild = async (req, res, next) => {
   try {
     const buildId = new ObjectId(req.params.id);
     if (!req.params.id) {
-      res.status(500).json("Build ID is required.");
+      throw Error("Build ID is required", { status: 400 });
     }
     const result = await mongodb
       .getDb()
@@ -115,14 +112,13 @@ const updateBuild = async (req, res, next) => {
       res.status(200).json(result);
       next();
     } else {
-      res
-        .status(500)
-        .json(
-          result.error || "Some error occured while attempting to update build."
-        );
+      throw new Error(
+        result.error || "Some error occurred while attempting to update build.",
+        { status: 400 }
+      );
     }
   } catch (err) {
-    res.staus(400).json(err);
+    res.staus(err.status).json(err.message);
   }
 };
 
@@ -138,14 +134,13 @@ const deleteBuildById = async (req, res, next) => {
       res.status(200).json(result);
       next();
     } else {
-      res
-        .status(500)
-        .json(
-          result.error || "Some error occured while attempting to delete build."
-        );
+      throw new Error(
+        result.error || "Some error occured while attempting to delete build.",
+        { status: 400 }
+      );
     }
   } catch (err) {
-    res.status(400).json(err);
+    res.status(err.status).json(err.message);
   }
 };
 
