@@ -135,7 +135,7 @@ const deleteBuildById = async (req, res, next) => {
         .db()
         .collection("build-orders")
         .deleteOne({ _id: buildId });
-      if (result.acknowledge) {
+      if (result.acknowledged) {
         res.status(200).json(result);
         next();
       } else {
