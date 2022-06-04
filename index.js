@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongodb = require("./db/connect");
-const { requiresAuth } = require("express-openid-connect");
+const { auth, requiresAuth } = require("express-openid-connect");
 
 // TODO: Add routes here
 const buildOrders = require("./routes/builds");
@@ -11,8 +11,6 @@ const swaggerDocument = require("./swagger.json");
 
 const app = express();
 const port = process.env.PORT || 3000;
-
-const { auth } = require("express-openid-connect");
 
 const config = {
   authRequired: false,
