@@ -5,6 +5,7 @@ const { auth, requiresAuth } = require("express-openid-connect");
 
 // TODO: Add routes here
 const buildOrders = require("./routes/builds");
+const users = require("./routes/users");
 
 const swaggerUi = require("swagger-ui-express");
 const swaggerDocument = require("./swagger.json");
@@ -35,11 +36,11 @@ app
     res.setHeader("Access-Control-Allow-Origin", "*");
     next();
   })
-  .use("/builds", buildOrders)
+  .use("/builds", requiresAuth(), buildOrders)
+  .use("/users", requiresAuth(), users)
   .use("/profile", requiresAuth(), (req, res) => {
     res.send(JSON.stringify(req.oidc.user));
   })
-  // .use("/users", users)
   .use(
     "/api-docs",
     requiresAuth(),
