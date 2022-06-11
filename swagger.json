@@ -270,44 +270,8 @@
         }
       }
     },
-    "/user": {
-      "post": {
-        "deprecated": true,
-        "tags": ["users"],
-        "description": "",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "username": {
-                  "example": "DeCKT"
-                },
-                "buildIds": {
-                  "example": ["2"]
-                },
-                "elo": {
-                  "example": "1150"
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Created"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
     "/user/{id}": {
       "get": {
-        "deprecated": true,
         "tags": ["users"],
         "description": "",
         "parameters": [
@@ -327,41 +291,7 @@
           }
         }
       },
-      "put": {
-        "deprecated": true,
-        "tags": ["users"],
-        "description": "",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "username": {
-                  "example": "DeCKT"
-                },
-                "buildIds": {
-                  "example": ["2"]
-                },
-                "elo": {
-                  "example": "1150"
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      },
       "delete": {
-        "deprecated": true,
         "tags": ["users"],
         "description": "",
         "parameters": [
