@@ -37,7 +37,7 @@ const getUserById = async (req, res, next) => {
 
 // const updateUserById = () => {};
 
-const deleteUserById = (req, res, next) => {
+const deleteUserById = async (req, res, next) => {
   try {
     const userId = new ObjectId(req.params.id);
     if (!req.params.id) {
@@ -61,6 +61,6 @@ const deleteUserById = (req, res, next) => {
 };
 
 module.exports = {
-    getUserById,
-    deleteUserById
-}
+  getUserById,
+  deleteUserById,
+};
