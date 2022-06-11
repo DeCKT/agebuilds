@@ -273,7 +273,7 @@
         }
       }
     },
-    "/user/{id}": {
+    "/users/{id}": {
       "get": {
         "tags": ["users"],
         "description": "",
